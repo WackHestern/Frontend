@@ -18,7 +18,7 @@ export class Navbar extends Component {
           <div className="title" >Tradium</div>
         </a>
         <div className="textContent">
-          {_.map(Object.keys(links), (title) => {
+          {_.map(Object.keys(this.props.links), (title) => {
             return <a className="link" href={links[title]}>
               <div className="link-text">{title}</div>
             </a>

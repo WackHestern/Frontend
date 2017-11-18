@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { browserHistory } from 'react-router';
-import {Navbar} from './Components/Navbar/Navbar.jsx'
+import {Navbar} from './../Common/Navbar/Navbar'
 import {Header} from './Components/Header/Header.jsx'
 
 import './home.scss'
+
+const links = {
+  "Sign Up": "signup",
+  "Help": "help",
+  "Install": "install",
+  "Sign In": "signin"
+}
 
 export default class Home extends Component {
   componentDidMount() {
@@ -12,7 +19,7 @@ export default class Home extends Component {
   render() {
     return (
       <div id="home">
-        <Navbar/>
+        <Navbar links={links}/>
         <Header/>
       </div>
     );
