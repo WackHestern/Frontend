@@ -3,10 +3,10 @@ import './Navbar.scss';
 const _ = require('lodash')
 
 const links = {
-  "Sign Up": "signup.html",
-  "Help": "help.html",
-  "Install": "install.html",
-  "Sign In": "signin.html"
+  "Sign Up": "signup",
+  "Help": "help",
+  "Install": "install",
+  "Sign In": "signin"
 }
 
 export class Navbar extends Component {
