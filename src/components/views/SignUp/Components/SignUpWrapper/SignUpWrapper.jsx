@@ -18,9 +18,9 @@ export class SignUpWrapper extends Component {
           <div style={{height: "40px"}}></div>
           <TextInput width="640px" type="text" placeholder="Email Address"/>
           <div style={{height: "40px"}}></div>
-          <TextInput width="640px" type="text" placeholder="Password"/>
+          <TextInput width="640px" type="password" placeholder="Password"/>
           <div style={{height: "40px"}}></div>
-          <TextInput width="640px" type="text" placeholder="Confirm password"/>
+          <TextInput width="640px" type="password" placeholder="Confirm password"/>
           <div style={{height: "40px"}}></div>
           <Button width="660px" text="Submit" href="app"/>
         </div>
