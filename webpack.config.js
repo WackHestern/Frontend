@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   context: __dirname,
@@ -19,6 +20,7 @@ module.exports = {
           presets: ['react', 'es2015']
         }
       },
+      { test: /\.json$/, loader: 'json-loader' },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css-loader!sass-loader')
@@ -34,5 +36,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
+  },
+  node: {
+    console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
