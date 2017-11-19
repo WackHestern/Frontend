@@ -3,6 +3,7 @@ import {Navbar} from './../Common/Navbar/Navbar'
 import {Buy} from './Components/Buy/Buy'
 import {Sell} from './Components/Sell/Sell'
 import {CashBalance} from '../Portfolio/Components/CashBalance/CashBalance'
+import {CurrentStocks} from '../Portfolio/Components/CurrentStocks/CurrentStocks'
 
 import './Trade.scss'
 
@@ -28,6 +29,7 @@ export default class Trade extends Component {
           <CashBalance/>
           <Buy/>
           <Sell/>
+          <CurrentStocks/>
         </div>
       </div>
     );
