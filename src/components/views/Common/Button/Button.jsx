@@ -3,8 +3,9 @@ import './Button.scss';
 
 export class Button extends Component {
   render() {
+
     return (
-      <a className="Button" href={this.props.href} style={{width: this.props.width}}>
+      <a className="Button" onClick={this.props.onClick} style={{width: this.props.width}}>
         {this.props.text}
       </a>
     );

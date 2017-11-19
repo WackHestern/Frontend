@@ -7,7 +7,8 @@ const links = {
   "Help": "help",
   "Install": "install",
   "Fund": "app.fund",
-  "Portfolio": "app.portfolio"
+  "Portfolio": "app.portfolio",
+  "Trade": "app.trade"
 }
 
 export default class Fund extends Component {

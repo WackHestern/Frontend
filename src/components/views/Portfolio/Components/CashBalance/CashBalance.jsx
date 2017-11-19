@@ -12,8 +12,28 @@ export class CashBalance extends Component {
   constructor() {
     super();
     this.state ={
-      balance: '$'
+      balance: ''
     }
+    this.reRender=this.reRender.bind(this)
+    this.update=this.update.bind(this)
+    this.timeout;
+    this.reRender()
+  }
+
+  reRender(){
+    this.update()
+    window.clearTimeout(this.timeout)
+    this.timeout = window.setTimeout(this.reRender,1000);
+  }
+
+  update (){
+    return axios({
+      method:'get',
+      url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
+    })
+      .then((res) => {
+        this.setState({balance: Math.round(res.data.message*100.0)/100.0})
+    });
   }
 
   componentDidMount(){
@@ -22,15 +42,15 @@ export class CashBalance extends Component {
       url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
     })
       .then((res) => {
-        this.setState({balance: res.data.availableFunds})
+        this.setState({balance: Math.round(res.data.message*100.0)/100.0})
     });
   }
 
   render() {
     return (
       <div className="CashBalance">
-        <div className="header">Available Funds</div>
-        <div className="subtext">${this.state.balance}</div>
+        <div className="headerboi">Available Funds</div>
+        <div className="subtextboi">${this.state.balance}</div>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import SignUp from './components/views/SignUp/signUp'
 import SignIn from './components/views/SignIn/signIn'
 import Fund from './components/views/Fund/fund'
 import Portfolio from './components/views/Portfolio/Portfolio'
+import Trade from './components/views/Trade/Trade'
 
 export default (
   <Route path='/' component={App}>
@@ -14,6 +15,7 @@ export default (
     <Route path='signin' component={SignIn} />
     <Route path='app.fund' component={Fund} />
     <Route path='app.portfolio' component={Portfolio} />
+    <Route path='app.trade' component={Trade} />
     <Route path='*' component={Home} />
   </Route>
 );

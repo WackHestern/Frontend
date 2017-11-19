@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import {Navbar} from './../Common/Navbar/Navbar'
-import {CashBalance} from './Components/CashBalance/CashBalance'
+import {Buy} from './Components/Buy/Buy'
+import {Sell} from './Components/Sell/Sell'
+import {CashBalance} from '../Portfolio/Components/CashBalance/CashBalance'
 
-import './Portfolio.scss'
+import './Trade.scss'
 
 const links = {
   "Help": "help",
@@ -10,15 +12,22 @@ const links = {
   "Fund": "app.fund",
   "Portfolio": "app.portfolio",
   "Trade": "app.trade"
-}
+};
 
-export default class Portfolio extends Component {
+export default class Trade extends Component {
+  constructor(props){
+    super(props)
+  }
+
   render() {
+
     return (
-      <div id="portfolio">
+      <div id="trade">
         <Navbar links={links}/>
         <div className="cardContainer">
           <CashBalance/>
+          <Buy/>
+          <Sell/>
         </div>
       </div>
     );

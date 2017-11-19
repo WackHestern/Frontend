@@ -6,6 +6,9 @@ import {TextInput} from '../../../Common/TextInput/TextInput'
 
 export class SignUpWrapper extends Component {
   render() {
+    function clicker () {
+      window.open("/app.portfolio","_self")
+    }
     return (
       <div className="sign-Up-wrapper">
         <div id="text-wrapper">
@@ -22,7 +25,7 @@ export class SignUpWrapper extends Component {
           <div style={{height: "40px"}}></div>
           <TextInput width="640px" type="password" placeholder="Confirm password"/>
           <div style={{height: "40px"}}></div>
-          <Button width="660px" text="Submit" href="app"/>
+          <Button width="660px" text="Submit" onClick={clicker}/>
         </div>
       </div>
     );

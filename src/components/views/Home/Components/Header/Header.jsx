@@ -4,7 +4,11 @@ import {Button} from '../../../Common/Button/Button.jsx'
 const _ = require('lodash')
 
 export class Header extends Component {
+
   render() {
+    function clicker () {
+      window.open("/signup","_self")
+    }
     return (
       <div className="header">
         <div className="text-wrapper">
@@ -18,7 +22,7 @@ export class Header extends Component {
             <br/>
             Seriously, we charge 0 fees.
           </div>
-          <Button text="Sign Up" href="signup" width="100px"/>
+          <Button text="Sign Up" onClick={clicker} width="100px"/>
         </div>
         <img className="phone-image" src="public/Assets/Header/S8Mockup.png"/>
       </div>
