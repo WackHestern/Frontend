@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 
 import {Navbar} from './../Common/Navbar/Navbar'
-import {SignUpWrapper} from './Components/SignUpWrapper/SignUpWrapper.jsx'
+import {SignInWrapper} from './Components/SignInWrapper/SignInWrapper.jsx'
 
-import './SignUp.scss'
+import './SignIn.scss'
 
 const links = {
   "Help": "help",
   "Install": "install",
-  "Sign In": "signin"
+  "Sign Up": "signup"
 }
 
-export default class SignUp extends Component {
+export default class SignIn extends Component {
   render() {
     return (
-      <div id="SignUp">
+      <div id="SignIn">
         <Navbar links={links}/>
-        <SignUpWrapper/>
+        <SignInWrapper/>
       </div>
     );
   }
