@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import './Navbar.scss';
 const _ = require('lodash')
 
-const links = {
-  "Sign Up": "signup",
-  "Help": "help",
-  "Install": "install",
-  "Sign In": "signin"
-}
-
 export class Navbar extends Component {
   render() {
     return (
@@ -19,7 +12,7 @@ export class Navbar extends Component {
         </a>
         <div className="textContent">
           {_.map(Object.keys(this.props.links), (title) => {
-            return <a className="link" href={links[title]}>
+            return <a className="link" href={this.props.links[title]} key={Math.random()}>
               <div className="link-text">{title}</div>
             </a>
           })}

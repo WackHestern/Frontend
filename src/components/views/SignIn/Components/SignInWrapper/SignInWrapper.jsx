@@ -15,7 +15,7 @@ export class SignInWrapper extends Component {
           <div style={{height: "40px"}}></div>
           <TextInput width="640px" type="password" placeholder="Password"/>
           <div style={{height: "40px"}}></div>
-          <Button width="660px" text="Submit" href="portfolio"/>
+          <Button width="660px" text="Submit" href="app.portfolio"/>
         </div>
       </div>
     );

@@ -6,9 +6,10 @@ import './Portfolio.scss'
 const links = {
   "Help": "help",
   "Install": "install",
+  "Fund": "app.fund"
 }
 
-export default class Fund extends Component {
+export default class Portfolio extends Component {
   render() {
     return (
       <div id="portfolio">

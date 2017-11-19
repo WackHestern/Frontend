@@ -6,6 +6,7 @@ import './fund.scss'
 const links = {
   "Help": "help",
   "Install": "install",
+  "Fund": "app.fund"
 }
 
 export default class Fund extends Component {
