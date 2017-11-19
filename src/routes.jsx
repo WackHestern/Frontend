@@ -14,7 +14,7 @@ export default (
     <IndexRoute component={Home} />
     <Route path='signup' component={SignUp} />
     <Route path='signin' component={SignIn} />
-    <Route path='charge' component={Fund} />
+    <Route path='app.fund' component={Fund} />
     <Route path='app.portfolio' component={Portfolio} />
     <Route path='app.trade' component={Trade} />
     <Route path='admin' component={Admin} />
