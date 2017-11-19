@@ -4,6 +4,7 @@ import {Buy} from './Components/Buy/Buy'
 import {Sell} from './Components/Sell/Sell'
 import {CashBalance} from '../Portfolio/Components/CashBalance/CashBalance'
 import {CurrentStocks} from '../Portfolio/Components/CurrentStocks/CurrentStocks'
+import {PortfolioBal} from '../Portfolio/Components/PortfolioBal/PortfolioBal'
 
 import './Trade.scss'
 
@@ -27,6 +28,7 @@ export default class Trade extends Component {
         <Navbar links={links}/>
         <div className="cardContainer">
           <CashBalance/>
+          <PortfolioBal/>
           <Buy/>
           <Sell/>
           <CurrentStocks/>

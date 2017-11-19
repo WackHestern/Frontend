@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CashBalance.scss';
+import './PortfolioBal.scss';
 import {Button} from '../../../Common/Button/Button.jsx'
 
 const _ = require('lodash');
@@ -7,7 +7,7 @@ const axios = require('axios');
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-export class CashBalance extends Component {
+export class PortfolioBal extends Component {
 
   constructor() {
     super();
@@ -30,7 +30,7 @@ export class CashBalance extends Component {
   update (){
     return axios({
       method:'get',
-      url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
+      url: proxyurl + 'https://investeon.herokuapp.com/stocks/portfoliovalue',
     })
       .then((res) => {
         this.setState({cashMoney: <div className="subtextboi">${Math.round(res.data.message*100.0)/100.0}</div>})
@@ -40,7 +40,7 @@ export class CashBalance extends Component {
   componentDidMount(){
     return axios({
       method:'get',
-      url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
+      url: proxyurl + 'https://investeon.herokuapp.com/stocks/portfoliovalue',
     })
       .then((res) => {
         this.setState({cashMoney: <div className="subtextboi">${Math.round(res.data.message*100.0)/100.0}</div>})
@@ -49,8 +49,8 @@ export class CashBalance extends Component {
 
   render() {
     return (
-      <div className="CashBalance">
-      <div className="headerboi">Cash Balance</div>
+      <div className="PortfolioBal">
+      <div className="headerboi">Portfolio Balance</div>
         {this.state.cashMoney}
         {/* <div className="subtextboi">${this.state.balance}</div> */}
       </div>

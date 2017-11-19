@@ -23,7 +23,7 @@ export class CurrentStocks extends Component {
   reRender(){
     this.update()
     window.clearTimeout(this.timeout)
-    this.timeout = window.setTimeout(this.reRender,1000);
+    this.timeout = window.setTimeout(this.reRender,2000);
   }
 
   update (){

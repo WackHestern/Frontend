@@ -1,0 +1,25 @@
+.PortfolioBal {
+  margin: 15px;
+  width: 300px;
+  height: 200px;
+  background-color:#fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headerboi {
+  margin: 0px;
+  width: 100%;
+  padding-bottom: 15px;
+  font-weight: 700;
+  color: #797979;
+}
+
+.subtextboi {
+  font-size: 50px;
+  margin: 0px;
+  width: fit-content;
+}

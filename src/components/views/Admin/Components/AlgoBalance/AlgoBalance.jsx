@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PortfolioBalance.scss';
+import './AlgoBalance.scss';
 import {Button} from '../../../Common/Button/Button.jsx'
 
 const _ = require('lodash');
@@ -11,27 +11,46 @@ const PlotlyComponent = createPlotlyComponent(Plotly);
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-export class PortfolioBalance extends Component {
+export class AlgoBalance extends Component {
 
   constructor() {
     super();
+    console.log(this.props)
     this.state ={
-      history: <i className="fa fa-cog fa-spin fa-3x fa-fw" ></i>
+      history: <i className="fa fa-cog fa-spin fa-3x fa-fw" ></i>,
+      toRefresh: true
     }
-    this.reRender=this.reRender.bind(this)
     this.update=this.update.bind(this)
     this.plotgraph=this.plotgraph.bind(this)
     this.timeout;
-    this.reRender()
-  }
-
-  reRender(){
-    this.update()
-    window.clearTimeout(this.timeout)
-    this.timeout = window.setTimeout(this.reRender,2000);
   }
 
   update (){
+    if(this.state.toRefresh){
+      return axios({
+        method:'post',
+        url: proxyurl + 'https://momentumtrader.herokuapp.com/Tradium/projection',
+        data: {
+          securities: this.props.securities,
+          start_cash: parseInt(this.props.principle),
+          strategy: this.props.strategy,
+        }
+      })
+        .then((res) => {
+          const data = res.data.networth_over_time
+          console.log(data)
+
+          let days=[]
+          for (let i=0;i<100;i++){
+            days.push(i)
+          }
+
+          return[days, data];
+      })
+      .then(([x, y]) => {
+        this.setState({history: this.plotgraph(x,y), toRefresh:false})
+      })
+    }
   }
 
   plotgraph(xdata, ydata){
@@ -60,40 +79,44 @@ export class PortfolioBalance extends Component {
       displayModeBar: false
     };
     return (
-      <PlotlyComponent className="whatever" data={data} layout={layout} config={config}/>
+      <PlotlyComponent className="graph" data={data} layout={layout} config={config}/>
     );
   }
 
-  componentDidMount(){
-    return axios({
-      method:'get',
-      url: proxyurl + 'https://investeon.herokuapp.com/stocks/datahistory',
-    })
-      .then((res) => {
-        let data = res.data.message
-        let days = []
-        let values = []
+  // componentDidMount(){
+  //   return axios({
+  //     method:'post',
+  //     url: proxyurl + 'https://momentumtrader.herokuapp.com/Tradium/projection',
+  //     data: {
+  //       securities: this.props.securities,
+  //       start_cash: parseInt(this.props.principle),
+  //       strategy: this.props.strategy,
+  //     }
+  //   })
+  //     .then((res) => {
+  //       const data = res.data.networth_over_time
+  //       console.log(data)
 
-        _.forEach(Object.keys(data), (day) => {
-          days.push(day)
-          let total = 0
-          _.forEach(data[day], (stock) => {
-            total += Object.values(stock)[0]
-          });
-          values.push(total)
-        });
+  //       let days=[]
+  //       for (let i=0;i<100;i++){
+  //         days.push(i)
+  //       }
 
-        return[days, values]
-    })
-    .then(([x, y]) => {
-      this.setState({history: this.plotgraph(x,y)})
-    })
-  }
+  //       return[days, data];
+  //   })
+  //   .then(([x, y]) => {
+  //     if(this.state.toRefresh){
+  //       this.setState({history: this.plotgraph(x,y), toRefresh:false})
+  //     }
+  //   })
+  // }
 
   render() {
+    console.log('rerendered')
+    this.update();
     return (
-      <div className="PortfolioBalance">
-        <div className="headerboi">Portfolio Balance History</div>
+      <div className="AlgoBalance">
+        <div className="headerboi">{this.props.strategy} Algorithm History</div>
         {this.state.history}
       </div>
     );
