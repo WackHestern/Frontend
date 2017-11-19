@@ -13,7 +13,7 @@ export class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <a className="title-wrapper" href="">
+        <a className="title-wrapper" href="home">
           <img className="logo-small" src="public/Assets/logo/logo.png"/>
           <div className="title" >Tradium</div>
         </a>

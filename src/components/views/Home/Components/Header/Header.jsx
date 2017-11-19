@@ -18,7 +18,7 @@ export class Header extends Component {
             <br/>
             Seriously, we charge 0 fees.
           </div>
-          <Button text="Sign Up" href="signup"/>
+          <Button text="Sign Up" href="signup" width="100px"/>
         </div>
         <img className="phone-image" src="public/Assets/Header/S8Mockup.png"/>
       </div>

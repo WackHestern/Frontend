@@ -1,0 +1,16 @@
+#TextInput {
+
+}
+.textbox {
+  height: 40px;
+  border-radius: 5px;
+  border: rgb(194, 194, 194) solid 1px;
+  padding-left:20px;
+  font-size: 20px;
+  font-weight: 250;
+}
+
+.textbox:focus{
+  outline: none;
+  border-color: #d4af37;
+}
