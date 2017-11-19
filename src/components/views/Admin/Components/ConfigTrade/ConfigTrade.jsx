@@ -35,7 +35,7 @@ export class ConfigTrade extends Component {
     security = security.split(',')
     security=_.map(security, (e)=> _.trim(e));
     const principle = this.state.principleInput;
-    this.props.monitor(security,principle)
+    this.props.monitor(principle, security)
   }
 
   render() {

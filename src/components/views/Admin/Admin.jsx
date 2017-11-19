@@ -12,14 +12,14 @@ export default class Portfolio extends Component {
   constructor(props){
     super(props)
     this.state = {
-      securityInput: ["BABA","ATHN"],
-      principleInput: 10000,
+      securityInput: ["NVDA", "AMD", "VZ"],
+      principleInput: 1000000,
       toRefresh: true
     }
     this.inputMonitor = this.inputMonitor.bind(this);
   }
 
-  inputMonitor(newPrincipleValue,newSecurityValue,newStocksValue){
+  inputMonitor(newPrincipleValue,newSecurityValue){
     this.setState({
       principleInput: newPrincipleValue,
       securityInput: newSecurityValue,

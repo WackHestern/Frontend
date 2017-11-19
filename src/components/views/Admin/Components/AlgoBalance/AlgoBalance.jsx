@@ -17,7 +17,6 @@ export class AlgoBalance extends Component {
     super();
     this.state ={
       history: <i className="fa fa-cog fa-spin fa-3x fa-fw" ></i>,
-      toRefresh: true
     }
     this.update=this.update.bind(this)
     this.plotgraph=this.plotgraph.bind(this)
@@ -26,19 +25,20 @@ export class AlgoBalance extends Component {
   }
 
   update (){
-    console.log(this.props.securities, this.props.principle, String(this.props.strategy))
-    if(this.toRefresh){
+    console.log(this.props.securities, this.props.principle, this.props.strategy)
+    if(this.toRefresh==true){
       return axios({
         method:'post',
         url: proxyurl + 'https://momentumtrader.herokuapp.com/Tradium/projection',
         data: {
           securities: this.props.securities,
-          // start_cash: parseInt(this.props.principle),
-          start_cash: 100000,
-          strategy: String(this.props.strategy),
+          start_cash: parseInt(this.props.principle),
+          // start_cash: 100000,
+          strategy: this.props.strategy,
         }
       })
         .then((res) => {
+          console.log(res.data)
           const data = res.data.networth_over_time
 
           let days=[]
@@ -50,7 +50,7 @@ export class AlgoBalance extends Component {
       })
       .then(([x, y]) => {
         this.toRefresh=false
-        this.setState({history: this.plotgraph(x,y), toRefresh:true})
+        this.setState({history: this.plotgraph(x,y)})
       })
     }else {
       this.toRefresh=true;

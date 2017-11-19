@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Navbar} from './../Common/Navbar/Navbar'
-
+// import StripeCheckout from 'react-stripe-checkout';
 import './fund.scss'
 
 const links = {
@@ -12,10 +12,25 @@ const links = {
 }
 
 export default class Fund extends Component {
+  // onToken = (token) => {
+  //   fetch('/save-stripe-token', {
+  //     method: 'POST',
+  //     body: JSON.stringify(token),
+  //   }).then(response => {
+  //     response.json().then(data => {
+  //       alert(`We are in business, ${data.email}`);
+  //     });
+  //   });
+  // }
+  
   render() {
     return (
       <div id="fund">
         <Navbar links={links}/>
+        {/* <StripeCheckout
+          token={this.onToken}
+          stripeKey="pk_test_EqlqmM2jfrrOFG0B2JQe69gs"
+        /> */}
       </div>
     );
   }
