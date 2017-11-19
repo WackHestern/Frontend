@@ -16,6 +16,7 @@ export class CashBalance extends Component {
     }
     this.reRender=this.reRender.bind(this)
     this.update=this.update.bind(this)
+    this.cashMoney = <i className="fa fa-cog fa-spin fa-3x fa-fw" ></i>
     this.timeout;
     this.reRender()
   }
@@ -32,7 +33,7 @@ export class CashBalance extends Component {
       url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
     })
       .then((res) => {
-        this.setState({balance: Math.round(res.data.message*100.0)/100.0})
+        this.setState({cashMoney: <div className="subtextboi">${Math.round(res.data.message*100.0)/100.0}</div>})
     });
   }
 
@@ -42,15 +43,16 @@ export class CashBalance extends Component {
       url: proxyurl + 'https://investeon.herokuapp.com/user/availablefunds',
     })
       .then((res) => {
-        this.setState({balance: Math.round(res.data.message*100.0)/100.0})
+        this.setState({cashMoney: <div className="subtextboi">${Math.round(res.data.message*100.0)/100.0}</div>})
     });
   }
 
   render() {
     return (
       <div className="CashBalance">
-        <div className="headerboi">Available Funds</div>
-        <div className="subtextboi">${this.state.balance}</div>
+      <div className="headerboi">Cash Balance</div>
+        {this.state.cashMoney}
+        {/* <div className="subtextboi">${this.state.balance}</div> */}
       </div>
     );
   }
