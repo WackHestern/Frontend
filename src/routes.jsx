@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/app';
 import Home from './components/views/Home/home';
 import SignUp from './components/views/SignUp/signUp'
-import signin from './components/views/SignIn/signIn'
+import signIn from './components/views/SignIn/signIn'
 
 export default (
   <Route path='/' component={App}>
