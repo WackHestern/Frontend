@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Navbar} from './../Common/Navbar/Navbar'
 import {CashBalance} from './Components/CashBalance/CashBalance'
+import {PortfolioBalance} from './Components/PortfolioBalance/PortfolioBalance'
 
 import './Portfolio.scss'
 
@@ -19,6 +20,7 @@ export default class Portfolio extends Component {
         <Navbar links={links}/>
         <div className="cardContainer">
           <CashBalance/>
+          <PortfolioBalance/>
         </div>
       </div>
     );
