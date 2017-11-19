@@ -10,5 +10,15 @@
   <body>
     <div id="app"></div>
     <script type="text/javascript" src="/public/bundle.js" charset="utf-8"></script>
+    <form action="/charge" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+        data-name="Tradium"
+        data-description="fund ($20.00)"
+        data-amount="2000">
+      </script>
+    </form>
   </body>
 </html>
